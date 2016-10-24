@@ -18,7 +18,7 @@ var elasticsearch = new Elasticsearch({
                             secretAccessKey:'Your secret ',
                             service:'es',
                             region:'us-east-1',
-                            host:'search-prathtweets-jqcnx3spdjo3rhy5zjzn4nusv4.us-east-1.es.amazonaws.com'
+                            host:'Your host'
                         });
 console.log(elasticsearch);
 
