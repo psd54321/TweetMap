@@ -3,10 +3,10 @@ var Twitter = require('twit');
 var Elasticsearch = require('aws-es');
 
 var client = new Twitter({
-    consumer_key:   '1hkOv5wjdTaqxsRM91FGwjkRU',
-    consumer_secret: '04VmYHw6z56sSt1Ypm6BbgxweTLiM5ejFxdusWU7AqYYtP8Lf6',
-    access_token: '218215924-qk6PxJv342X46C3AwMNFFCI5raOa7coBYCFRXmGo',
-    access_token_secret: 'pKQKTqsm37kSFVysuKodhZ7BusEKZ8J9dS7Pv3jKjB4bY'
+    consumer_key:   'Your key',
+    consumer_secret: 'Your secret',
+    access_token: 'Your access token',
+    access_token_secret: 'Your access token secret'
 });
 //Pushing tweets into elastic search.
 var topics = 'virat,kohli,trump,Man Utd,dhoni,real madrid,usgp' +
@@ -14,8 +14,8 @@ var topics = 'virat,kohli,trump,Man Utd,dhoni,real madrid,usgp' +
     'president,debate,india,The Walking Dead,election,apple,ferrari,Premier League,food,restraunt,lunch,dinner,breakfast,foodie,pizza';
 
 var elasticsearch = new Elasticsearch({
-                            accessKeyId:'AKIAJEMRSUOJLIK6SKIA',
-                            secretAccessKey:'3fKmlolGVBDDJmbfQVUGOoiBGSf+iNXda76TbV62',
+                            accessKeyId:'Your access key',
+                            secretAccessKey:'Your secret ',
                             service:'es',
                             region:'us-east-1',
                             host:'search-prathtweets-jqcnx3spdjo3rhy5zjzn4nusv4.us-east-1.es.amazonaws.com'
