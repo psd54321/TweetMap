@@ -12,11 +12,11 @@ router.get('/', function (req, res) {
 
 router.get('/search/:searchq', function (req, res) {
     var elasticsearch = new Elasticsearch({
-        accessKeyId: 'AKIAJEMRSUOJLIK6SKIA',
-        secretAccessKey: '3fKmlolGVBDDJmbfQVUGOoiBGSf+iNXda76TbV62',
+        accessKeyId: 'Your Acces KEy Id',
+        secretAccessKey: 'Your secret',
         service: 'es',
         region: 'us-east-1',
-        host: 'search-prathtweets-jqcnx3spdjo3rhy5zjzn4nusv4.us-east-1.es.amazonaws.com'
+        host: 'You host address'
     });
 
     elasticsearch.search({
