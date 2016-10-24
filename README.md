@@ -1,2 +1,2 @@
-NYUPrintStatus
+Tweet Map
 ==============
