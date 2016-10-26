@@ -2,8 +2,8 @@ var map;
 var markers = [];
 
 function initMap() {
-    // Create the map with no initial style specified.
-    // It therefore has default styling.
+    
+    //Initialize Map
     map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(0, 0),
         zoom: 2,
@@ -34,6 +34,7 @@ function initMap() {
     });
 }
 
+//To Do later
 $(".widget-pane").focusout(function () {
     if ($(".widget-pane").hasClass("widget-pane-visible")) {
         $(".widget-pane").removeClass("widget-pane-visible");
@@ -41,38 +42,42 @@ $(".widget-pane").focusout(function () {
     }
 });
 
+//To do Later
 function closeWidget() {
     $(".widget-pane").removeClass("widget-pane-visible");
     $(".widget-pane").addClass("widget-hide");
 }
 
 function putMarkers(searchterm, map) {
-    console.log(searchterm);
     clearOverlays();
     $.ajax({
         url: "/search/" + escape(searchterm),
         method: "GET",
         success: function (data) {
             var tweets = data.hits.hits;
-            console.log(tweets[0]._source.text);
-            for (var i = 0; i < tweets.length; i++) {
-                marker = new google.maps.Marker({
-                    map: map,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP,
-                    position: new google.maps.LatLng(tweets[i]._source.location.coordinates[0], tweets[i]._source.location.coordinates[1]),
-                    icon: 'icons/location_icon.svg'
-                });
+            if(tweets.length > 0){
+                for (var i = 0; i < tweets.length; i++) {
+                    marker = new google.maps.Marker({
+                        map: map,
+                        draggable: true,
+                        animation: google.maps.Animation.DROP,
+                        position: new google.maps.LatLng(tweets[i]._source.location.coordinates[0], tweets[i]._source.location.coordinates[1]),
+                        icon: 'icons/location_icon.svg'
+                    });
 
-                marker.info = new google.maps.InfoWindow({
-                    content: "<div><h3>@" + tweets[i]._source.username + "</h3></div><p>" + tweets[i]._source.text + "</p>"
-                });
+                    marker.info = new google.maps.InfoWindow({
+                        content: "<div><h3>@" + tweets[i]._source.username + "</h3></div><p>" + tweets[i]._source.text + "</p>"
+                    });
 
-                google.maps.event.addListener(marker, 'click', function () {
-                    var marker_map = this.getMap();
-                    this.info.open(marker_map, this);
-                });
-                markers.push(marker);
+                    google.maps.event.addListener(marker, 'click', function () {
+                        var marker_map = this.getMap();
+                        this.info.open(marker_map, this);
+                    });
+                    markers.push(marker);
+                }
+            }
+            else{
+                alert('No results matched your search!!')
             }
         }
     });
