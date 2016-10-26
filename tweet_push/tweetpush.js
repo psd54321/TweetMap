@@ -5,8 +5,8 @@ var Elasticsearch = require('aws-es');
 var client = new Twitter({
     consumer_key:   'Your key',
     consumer_secret: 'Your secret',
-    access_token: 'Your access token',
-    access_token_secret: 'Your access token secret'
+    access_token: 'Your aceess token',
+    access_token_secret: 'Your token secret'
 });
 //Pushing tweets into elastic search.
 var topics = 'virat,kohli,trump,Man Utd,dhoni,real madrid,usgp' +
@@ -15,7 +15,7 @@ var topics = 'virat,kohli,trump,Man Utd,dhoni,real madrid,usgp' +
 
 var elasticsearch = new Elasticsearch({
                             accessKeyId:'Your access key',
-                            secretAccessKey:'Your secret ',
+                            secretAccessKey:'Your secret',
                             service:'es',
                             region:'us-east-1',
                             host:'Your host'
