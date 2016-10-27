@@ -3,19 +3,17 @@ var Twitter = require('twit');
 var Elasticsearch = require('aws-es');
 
 var client = new Twitter({
-    consumer_key:   'Your key',
-    consumer_secret: 'Your secret',
-    access_token: 'Your aceess token',
+    consumer_key: 'Your key',
+    consumer_secret: 'Your key secret',
+    access_token: 'Your access token',
     access_token_secret: 'Your token secret'
 });
 //Pushing tweets into elastic search.
-var topics = 'virat,kohli,trump,Man Utd,dhoni,real madrid,usgp' +
-    'hillary,clinton,chelsea,ohio,patriots,GOT,cricket,democrats,republicans,mac,gadget,samsung,iphone,sony,mobile,science,'+
-    'president,debate,india,The Walking Dead,election,apple,ferrari,Premier League,food,restraunt,lunch,dinner,breakfast,foodie,pizza';
+var topics = 'trump';
 
 var elasticsearch = new Elasticsearch({
                             accessKeyId:'Your access key',
-                            secretAccessKey:'Your secret',
+                            secretAccessKey:'Your access key secret',
                             service:'es',
                             region:'us-east-1',
                             host:'Your host'

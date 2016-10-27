@@ -1,8 +1,9 @@
 var map;
 var markers = [];
+var socket = io.connect();
 
 function initMap() {
-    
+
     //Initialize Map
     map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(0, 0),
@@ -32,6 +33,11 @@ function initMap() {
         google.maps.event.trigger(map, "resize");
         map.setCenter(center);
     });
+
+    setInterval(function () {
+        var combo = document.getElementById('style-selector');
+        putMarkers(combo.value, map);
+    }, 30000);
 }
 
 //To Do later
@@ -48,6 +54,8 @@ function closeWidget() {
     $(".widget-pane").addClass("widget-hide");
 }
 
+
+
 function putMarkers(searchterm, map) {
     clearOverlays();
     $.ajax({
@@ -55,7 +63,7 @@ function putMarkers(searchterm, map) {
         method: "GET",
         success: function (data) {
             var tweets = data.hits.hits;
-            if(tweets.length > 0){
+            if (tweets.length > 0) {
                 for (var i = 0; i < tweets.length; i++) {
                     marker = new google.maps.Marker({
                         map: map,
@@ -75,8 +83,7 @@ function putMarkers(searchterm, map) {
                     });
                     markers.push(marker);
                 }
-            }
-            else{
+            } else {
                 alert('No results matched your search!!')
             }
         }
