@@ -19,8 +19,8 @@ router.get('/', function (req, res) {
 
 router.get('/search/:searchq', function (req, res) {
     var elasticsearch = new Elasticsearch({
-        accessKeyId: 'AKIAIFPUJ5RGB2WHFGFQ',
-        secretAccessKey: 's1DQkT7gLzeEC33OukEn2iv2jAFaacVyiOJcciW0',
+        accessKeyId: 'Your key',
+        secretAccessKey: 'Your key',
         service: 'es',
         region: 'us-east-1',
         host: 'search-prathtweets-jqcnx3spdjo3rhy5zjzn4nusv4.us-east-1.es.amazonaws.com'
