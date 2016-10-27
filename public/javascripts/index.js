@@ -1,6 +1,5 @@
 var map;
 var markers = [];
-var socket = io.connect();
 
 function initMap() {
 

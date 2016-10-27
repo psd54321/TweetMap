@@ -5,10 +5,10 @@ var Twitter = require('twit');
 var Elasticsearch = require('aws-es');
 
 var client = new Twitter({
-    consumer_key: 'Your key',
-    consumer_secret: 'Your key secret',
-    access_token: 'Your access token',
-    access_token_secret: 'Your token secret'
+    consumer_key: 'Your ley',
+    consumer_secret: 'Your key',
+    access_token: 'Your key',
+    access_token_secret: 'Your key'
 });
 
 /* GET home page */
@@ -19,11 +19,11 @@ router.get('/', function (req, res) {
 
 router.get('/search/:searchq', function (req, res) {
     var elasticsearch = new Elasticsearch({
-        accessKeyId: 'Your access key id',
-        secretAccessKey: 'Your access key secret',
+        accessKeyId: 'Your key',
+        secretAccessKey: 'Your key',
         service: 'es',
         region: 'us-east-1',
-        host: 'Your host'
+        host: 'search-prathtweets-jqcnx3spdjo3rhy5zjzn4nusv4.us-east-1.es.amazonaws.com'
     });
 
     elasticsearch.search({
